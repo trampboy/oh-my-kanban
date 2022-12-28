@@ -62,13 +62,13 @@ function KanbanBoard() {
     <main className="kanban-board">
       <KanbanColumn className="column-todo" title={(<>待处理<button onClick={handleAdd} disabled={showAdd}>⊕ 添加新卡片</button></>)}>
         {showAdd && <KanbanNewCard onSubmit={handleSubmit}/>}
-        {todoList.map(item => <KanbanCard {...item} />)}
+        {todoList.map(item => <KanbanCard key={item.title} {...item} />)}
       </KanbanColumn>
       <KanbanColumn className="column-ongoing" title="进行中">
-        {ongoingList.map(item => <KanbanCard {...item} />)}
+        {ongoingList.map(item => <KanbanCard key={item.title} {...item} />)}
       </KanbanColumn>
       <KanbanColumn className="column-done" title="已完成">
-        {doneList.map(item => <KanbanCard {...item} />)}
+        {doneList.map(item => <KanbanCard key={item.title} {...item} />)}
       </KanbanColumn>
     </main>
   )
